@@ -70,6 +70,8 @@ exports.login = async(req, res)=>{
             expiresIn:'5d'
         })
 
+        res.cookie('token', token);
+
         res.status(200).json({
             user,
             token
@@ -78,4 +80,13 @@ exports.login = async(req, res)=>{
     } catch (error) {
         res.status(500).json(error.message);
     }
+}
+
+
+exports.getUserDetails = async(req, res)=>{
+    const user = await User.findById(req.user.id);
+    if(!user){
+        res.status(500).json('User not found');
+    }
+    res.status(200).json(user)
 }
