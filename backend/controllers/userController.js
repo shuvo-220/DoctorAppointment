@@ -2,7 +2,6 @@ const User = require('../models/userModel');
 const Doctor = require('../models/DoctorModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const appointments = require('../models/appointments');
 
 exports.register = async(req, res)=>{
     const{name,email,password,role} = req.body;
@@ -93,22 +92,11 @@ exports.getUserDetails = async(req, res)=>{
 }
 
 
-
-exports.appointment=async(req, res)=>{
-    const{patientId, doctorId, time, date} = req.body;
-
-    try {
-        const appointment = new appointments({patientId, doctorId, time, date})
-        await appointment.save();
-        res.status(200).json(appointment)
-    } catch (error) {
-        res.status(400).json(error.message);
+//loggedin doctor details
+exports.getDoctorDetails = async(req, res)=>{
+    const doctor = await Doctor.findById(req.user.id);
+    if(!doctor){
+        res.status(500).json('doctor not found');
     }
-}
-
-
-//get loggedin user appointment
-exports.userAppointment=async(req, res)=>{
-    const userAppointment = await appointments.find({patientId:req.user.id}).populate('doctorId', 'name specilization')
-    res.status(200).json(userAppointment)
+    res.status(200).json(doctor);
 }

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const appointmentSchema = new mongoose.Schema({
     patientId:{type:mongoose.Types.ObjectId, ref:"Patient"},
     doctorId:{type:mongoose.Types.ObjectId, ref:"Doctor"},
-    fees:{type:Number},
+    fees:{type:Number, required:true},
     date:{type:String},
     time:{type:String},
     status:{type:String, default:'pending'}
