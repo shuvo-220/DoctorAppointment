@@ -16,7 +16,7 @@ function App() {
       easing:'ease-in-sine',
       delay:400
     })
-    AOS.refresh();
+    AOS.refresh()
   },[])
 
   return (
