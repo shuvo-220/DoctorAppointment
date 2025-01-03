@@ -8,6 +8,7 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
+import DoctorDetails from './components/doctorDetails/DoctorDetails';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/doctor/:id' element={<DoctorDetails />} />
         </Routes>
         <Footer />
      </BrowserRouter>
