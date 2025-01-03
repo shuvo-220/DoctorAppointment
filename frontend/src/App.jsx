@@ -6,6 +6,8 @@ import Footer from './components/footer/Footer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import Login from './components/login/Login';
+import Register from './components/register/Register';
 
 function App() {
 
@@ -25,6 +27,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
         </Routes>
         <Footer />
      </BrowserRouter>

@@ -8,12 +8,12 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="bg-blue-950 md:p-[100px]">
-      <div className="grid grid-cols-1 sm:grid-cols-3 p-5">
+      <div className="grid grid-cols-1 sm:grid-cols-3 p-5 mx-auto justify-items-center items-center text-center">
         <div>
           <h1 className="text-xl py-2 font-semibold text-white">
             Follow Us On:
           </h1>
-          <div className="text-white flex items-center gap-4">
+          <div className="text-white flex justify-center items-center gap-4">
             <InstagramIcon />
             <FacebookIcon />
             <YouTubeIcon />
@@ -46,6 +46,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <h1 className="font-bold text-white text-center">&copy;<a href='https://github.com/shuvo-220'>shuvo</a>Allrights reserved.</h1>
     </div>
   );
 };
