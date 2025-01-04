@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
 import DoctorDetails from './components/doctorDetails/DoctorDetails';
+import Contact from './components/contact/Contact';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/doctor/:id' element={<DoctorDetails />} />
+          <Route path='/contact' element={<Contact />} />
         </Routes>
         <Footer />
      </BrowserRouter>
