@@ -10,6 +10,8 @@ import Login from './components/login/Login';
 import Register from './components/register/Register';
 import DoctorDetails from './components/doctorDetails/DoctorDetails';
 import Contact from './components/contact/Contact';
+import ProtectedRoute from './components/protect/ProtectedRoute';
+import PublicRoute from './components/protect/PublicRoute';
 
 function App() {
 
@@ -29,10 +31,20 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/login' element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          } />
           <Route path='/register' element={<Register />} />
           <Route path='/doctor/:id' element={<DoctorDetails />} />
-          <Route path='/contact' element={<Contact />} />
+
+          <Route path='/contact' element={
+            <ProtectedRoute>
+              <Contact />
+            </ProtectedRoute>
+          } />
+
         </Routes>
         <Footer />
      </BrowserRouter>

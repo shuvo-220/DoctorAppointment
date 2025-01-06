@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from 'react'
 
-const Store = createContext();
+export const Store = createContext();
 
 const Context = ({children}) => {
 
