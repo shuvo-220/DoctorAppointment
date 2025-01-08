@@ -5,8 +5,8 @@ export const Store = createContext();
 const Context = ({children}) => {
 
     const initialState={
-            user:'',
-            token:''
+            user:localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : '',
+            token:localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')): ''
         }
 
     const reducer=(state, action)=>{
@@ -16,6 +16,13 @@ const Context = ({children}) => {
                     ...state,
                     user:action.payload  
                 }
+            case 'LOGOUT':
+                return{
+                    ...state,
+                    user:null
+                }
+            default:
+                return state
         }
     }
 
